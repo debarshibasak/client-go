@@ -152,6 +152,7 @@ func (config *DirectClientConfig) ClientConfig() (*restclient.Config, error) {
 
 	clientConfig := &restclient.Config{}
 	clientConfig.Host = configClusterInfo.Server
+	clientConfig.BearerToken = configAuthInfo.Token
 	if configClusterInfo.ProxyURL != "" {
 		u, err := parseProxyURL(configClusterInfo.ProxyURL)
 		if err != nil {
